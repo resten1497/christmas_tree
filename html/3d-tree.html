@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My first three.js app</title>
+		<style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+		</style>
+	</head>
+	<body>
+    <script src="https://threejs.org/build/three.js"></script>
+		<script type="module">
+      function getRandom(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min
+      }
+
+      import { OrbitControls } from 'https://unpkg.com/three@0.123.0/examples/jsm/controls/OrbitControls.js';
+
+			const scene = new THREE.Scene()
+			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+
+			const renderer = new THREE.WebGLRenderer()
+			renderer.setSize(window.innerWidth, window.innerHeight)
+			document.body.appendChild(renderer.domElement)
+
+      camera.position.z = 50
+
+      {
+        const geometry = new THREE.BoxGeometry(4, 7.5, 4)
+        const material = new THREE.MeshBasicMaterial({ color: '#522b11' })
+        const cube = new THREE.Mesh(geometry, material)
+        cube.position.y = -10
+        scene.add(cube)
+      }
+      {
+        const geometry = new THREE.CylinderGeometry(0, 9, 15, 32)
+        const material = new THREE.MeshBasicMaterial({ color: '#18a11a' })
+        const cylinder = new THREE.Mesh(geometry, material)
+        scene.add(cylinder)
+      }
+      {
+        const geometry = new THREE.CylinderGeometry(0, 8, 12, 32)
+        const material = new THREE.MeshBasicMaterial({ color: '#18a11a' })
+        const cylinder = new THREE.Mesh(geometry, material)
+        cylinder.position.y = 4
+        scene.add(cylinder)
+      }
+      {
+        const geometry = new THREE.CylinderGeometry(0, 6, 10, 32)
+        const material = new THREE.MeshBasicMaterial({ color: '#18a11a' })
+        const cylinder = new THREE.Mesh(geometry, material)
+        cylinder.position.y = 9
+        scene.add(cylinder)
+      }
+      {
+        const geometry = new THREE.SphereGeometry(0.7, 32, 32)
+        const material = new THREE.MeshBasicMaterial({ color: '#fcff4a' })
+        const sphere = new THREE.Mesh( geometry, material )
+        sphere.position.y = 14.3
+        scene.add(sphere)
+
+        const lights = ['#fcff4a', '#ff0000']
+        let i = 0
+        setInterval(() => {
+          if (i) i--; else i++
+          sphere.material.color.set(lights[i])
+        }, 500)
+        renderer.render(scene, camera)
+      }
+
+      const spheres = []
+      {
+        for (let i = 0; i < 100; i++) {
+          const geometry = new THREE.SphereGeometry(0.2, 32, 32)
+          const material = new THREE.MeshBasicMaterial({ color: '#ffffff' })
+          const sphere = new THREE.Mesh(geometry, material)
+          sphere.downSpeed = getRandom(100, 300) / 1000
+          sphere.position.y = getRandom(-5, 70)
+          sphere.position.x = getRandom(-50, 50)
+          sphere.position.z = getRandom(-50, 50)
+          spheres.push(sphere)
+          scene.add(sphere)
+        }
+      }
+
+      const controls = new OrbitControls(camera, renderer.domElement)
+      controls.rotateSpeed = 1.0
+      controls.zoomSpeed = 1.2
+      controls.panSpeed = 0.8
+      controls.minDistance = 5
+      controls.maxDistance = 100
+
+      function animateStars() {
+        for (let i = 0; i < 100; i++) {
+          spheres[i].position.y -= spheres[i].downSpeed
+          if (spheres[i].position.y < -10) spheres[i].position.y = 70
+          renderer.render(scene, camera)
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate)
+        renderer.render(scene, camera)
+        controls.update()
+        animateStars()
+      }
+      animate()
+		</script>
+	</body>
+</html>
