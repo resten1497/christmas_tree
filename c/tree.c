@@ -17,7 +17,7 @@
      putchar(10);}}/**/
     #import<string.h>rks
    main(){printf("%*.s**\
-  \n\%*.s****\n",13,t,12,t
+  \n %*.s****\n",13,t,11,t
  );e(2,22);e(10,30);char*j=
 malloc(0xff);memset(j,32,10)
           ;memset(
