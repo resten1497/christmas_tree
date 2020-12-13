@@ -11,7 +11,6 @@
            cl(" " .repeat(9 -i)+
          "#"+"*".repeat(i*2+1)+"#"
        )); [..."limited"].toString()
-     const a = new Function("a, b","")
                      for
                    (let i=
                  0;i<7;i++)
