@@ -31,3 +31,32 @@
 
 **PR을 올리실때 반드시 실행결과 스크린샷을 함께 보내주세요!**
 
+---
+Now that we can't all get together and make a Christmas tree,
+We can make a Christmas tree by texting.
+
+**A project to create and share Christmas trees in all languages.**
+
+It doesn't matter which language it is.  
+Let's fill this repository with Christmas trees!
+
+
+## Guide Line
+
+It doesn't matter what language you use.  
+There shall be a minimum output of **Tree shape**.  
+You can add anything to a tree freely, but take the form of a tree.  
+
+## Contribute Guide
+
+Grab the fork in this repository and create a new branch.  
+Create a folder name for the language you want to add and insert a file into that language.  
+You can freely name the files inside.  
+
+And even if there is a language already written, add your own tree.  
+You can add your own Christmas tree with different file names to a folder with the language name you want to use.  
+
+If the language does not have an extension, you can upload it as a txt file.  
+If you need to include multiple files, create and add additional internal folders.  
+
+**Make sure to send screenshots of execution results when uploading PR!**
