@@ -34,7 +34,7 @@
 ---
 # 🎄  
 
-Now that we can't all get together and make a Christmas tree,
+we can't all get together and make a Christmas tree,  
 We can make a Christmas tree by texting.
 
 **A project to create and share Christmas trees in all languages.**
