@@ -1,0 +1,16 @@
+{
+  "name": "xmas-tree-cli",
+  "version": "0.1.3",
+  "author": "minung.han",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "ink": "^3.0.8",
+    "react": "^17.0.1"
+  }
+}
