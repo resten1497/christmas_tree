@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Merry ChristMas!</title>
+    <script type="text/javascript">
+      function draw() {
+        var canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+          var ctx = canvas.getContext("2d");
+          drawTop(ctx);
+          drawBottom(ctx);
+          drawStar(ctx);
+          drawItems(ctx);
+        }
+      }
+      // 트리 상단 그리는 함수
+      function drawTop(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(500, 80);
+        ctx.lineTo(570, 200);
+        ctx.lineTo(430, 200);
+        ctx.moveTo(500, 130);
+        ctx.lineTo(600, 300);
+        ctx.lineTo(400, 300);
+        ctx.fillStyle = "rgb(85, 181, 98)";
+        ctx.fill();
+      }
+      // 트리 밑둥 그리는 함수
+      function drawBottom(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(480, 300);
+        ctx.lineTo(520, 300);
+        ctx.lineTo(520, 400);
+        ctx.lineTo(480, 400);
+        ctx.fillStyle = "rgb(125, 89, 77)";
+        ctx.fill();
+      }
+      // 최상단 별 그리는 함수
+      function drawStar(ctx) {
+        var alpha = (2 * Math.PI) / 10;
+        var radius = 30;
+        ctx.beginPath();
+        for (var i = 11; i != 0; i--) {
+          var r = (radius * ((i % 2) + 1)) / 2;
+          var omega = alpha * i;
+          ctx.lineTo(r * Math.sin(omega) + 500, r * Math.cos(omega) + 70);
+        }
+        ctx.fillStyle = "rgb(247, 244, 69)";
+        ctx.fill();
+      }
+      // 동그란 악세사리들
+      function drawItems(ctx) {
+        ctx.beginPath();
+        ctx.arc(570, 200, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgb(247, 244, 69)";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(430, 200, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgb(66, 91, 194)";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(600, 300, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgb(194, 66, 100)";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(400, 300, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgb(153, 194, 66)";
+        ctx.fill();
+      }
+    </script>
+    <style type="text/css">
+      canvas {
+        border: 1px solid black;
+        background-color: #33363d;
+        border-radius: 25px;
+      }
+    </style>
+  </head>
+  <body
+    onload="draw();"
+    style="
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <div>
+      <div
+        style="
+          position: relative;
+          top: 80px;
+          left: 50px;
+          color: white;
+          font-size: 1.8rem;
+        "
+      >
+        Merry Christmas!
+      </div>
+      <canvas id="canvas" width="1000" height="500"></canvas>
+    </div>
+  </body>
+</html>
