@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Merry Christmas!</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		html {
+			background: beige;
+		}
+		#tree {
+			display: flex;
+			width: 600px;
+			height: 800px;
+			margin: 20px auto;
+			border: 10px solid burlywood;
+		}
+		.tri {
+			width: 0;
+			height: 0;
+			border-right: 30px solid transparent;
+			border-left: 30px solid transparent;
+			border-bottom: 50px solid seagreen;
+		}
+	</style>
+</head>
+<body>
+	<div id="tree">
+		<!-- <div class="tri"></div>
+		<div class="tri"></div> -->
+	</div>
+
+	<script>
+		const tri = document.createElement('div');
+		tri.classList.add('tri');
+		document.querySelector("#tree").appendChild(tri);
+	</script>
+</body>
+</html>
