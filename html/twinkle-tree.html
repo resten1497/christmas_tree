@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MERRY CHRISTMAS</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: beige;
+      }
+      #tree {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 620px;
+        margin: 50px auto;
+        padding: 50px 20px;
+        border: 10px solid burlywood;
+      }
+      h1 {
+        margin: 0 0 30px;
+        color: #3c3225;
+        font-family: 'Black Han Sans', sans-serif;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+      .tri {
+        width: 0;
+        height: 0;
+        border-right: 25px solid transparent;
+        border-left: 25px solid transparent;
+        border-bottom: 40px solid seagreen;
+      }
+      #star {
+        position: relative;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-bottom: 20px solid orange;
+        border-right: 30px solid transparent;
+        color: orange;
+        transform: rotate(35deg);
+      }
+      #star:before {
+        content: '';
+        position: absolute;
+        top: -18px;
+        left: -18px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-bottom: 38px solid orange;
+        border-right: 12px solid transparent;
+        transform: rotate(-35deg);
+      }
+      #star:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: -30px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-bottom: 20px solid orange;
+        border-right: 30px solid transparent;
+        color: orange;
+        transform: rotate(-70deg);
+      }
+      #trunk {
+        width: 50px;
+        height: 80px;
+        background: #7d3817;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tree">
+      <h1>MERRY CHRISTMAS</h1>
+      <div id="star"></div>
+      <div id="dan1"></div>
+      <div id="dan2"></div>
+      <div id="trunk"></div>
+    </div>
+
+    <script>
+      const renderTree = () => {
+        const tree = document.querySelector('#tree');
+        const dan1 = document.querySelector('#dan1');
+        const dan2 = document.querySelector('#dan2');
+
+        const triWidth = 50;
+        const dan1Row = Math.round((tree.clientWidth * 0.5) / triWidth / 2) + 1; // 1단 행 수
+        const dan1LastTriCnt = (dan1Row - 1) * 2 + 1; // 1단 마지막행 삼각형 개수
+        const dan2LastTriCnt = Math.round(tree.clientWidth / triWidth) + 1; // 2단 마지막행 삼각형 개수
+
+        const dan1LoopObj = {
+          rowStart: 0,
+          rowEnd: dan1Row,
+          rowIncre: 1,
+          i: 0,
+          triStart: 0,
+          triEnd: function () {
+            return this.i * 2 + 1;
+          },
+          triIncre: 1,
+          el: dan1,
+        };
+
+        const dan2LoopObj = {
+          rowStart: dan1LastTriCnt - 2,
+          rowEnd: dan2LastTriCnt,
+          rowIncre: 2,
+          i: 0,
+          triStart: 0,
+          triEnd: function () {
+            return this.i;
+          },
+          triIncre: 1,
+          el: dan2,
+        };
+
+        const execLoop = obj => {
+          for (let i = obj.rowStart; i < obj.rowEnd; i += obj.rowIncre) {
+            const row = document.createElement('div'); // 행
+            row.classList.add('row');
+
+            obj.i = i;
+
+            for (let j = obj.triStart; j < obj.triEnd(); j += obj.triIncre) {
+              const tri = document.createElement('div'); // 삼각형
+              tri.classList.add('tri');
+
+              row.appendChild(tri);
+            }
+
+            obj.el.appendChild(row);
+          }
+        };
+
+        execLoop(dan1LoopObj);
+        execLoop(dan2LoopObj);
+      };
+
+      const getRandomColor = () => {
+        const h = Math.floor(Math.random() * (160 - 100)) + 100; // green
+        const s = Math.floor(Math.random() * (80 - 30)) + 30;
+        const v = Math.floor(Math.random() * (80 - 30)) + 30;
+        const hsl = `hsl(${h}deg ${s}% ${v}%)`;
+        return hsl;
+      };
+
+      const changeColor = () => {
+        const triList = document.querySelectorAll('.tri');
+        triList.forEach(item => {
+          item.style.borderBottomColor = getRandomColor();
+        });
+      };
+
+      renderTree();
+      setInterval(changeColor, 1000);
+    </script>
+  </body>
+</html>
