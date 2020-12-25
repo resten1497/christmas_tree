@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="star"></div>
+    <div id="tree"></div>
+    <div id="bar"></div>
+    <script>const star = document.querySelector("#star");
+        let tree = document.querySelector("#tree");
+        let bar = document.querySelector('#bar');
+        
+        let treeWidth = 0;
+        
+        for (let j = 0; j < 19; j++)
+            star.innerHTML = `${star.innerHTML}` + `&nbsp`;
+        bar.innerHTML = `${star.innerHTML}` + ` | |`;
+        star.innerHTML = `${star.innerHTML}` + "🌟";
+        
+        for (let i = 0; i < 10; i++)
+        {
+            for (let j = 0; j < 20 - treeWidth; j++)
+                tree.innerHTML = `${tree.innerHTML}` + `&nbsp`;
+            tree.innerHTML = `${tree.innerHTML}`+ "/";
+            
+            for (let j = 0; j < treeWidth * 2; j++)
+                tree.innerHTML = `${tree.innerHTML}` + `&nbsp`;
+            tree.innerHTML = `${tree.innerHTML}`+ `\\<br>`;
+            treeWidth++;
+        }
+        
+        bar.innerHTML = `${bar.innerHTML}<br>` + "❅❅❅❅❅❅❅🎁❅❅❅❅❅❅❅";
+         </script>
+</body>
+</html>
