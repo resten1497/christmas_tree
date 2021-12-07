@@ -1,0 +1,1 @@
+for i in range(1, 16, 2): print(' '*((11 - i) // 2),'*'*i, sep='') if i <= 11 else print(' '*4,'| |',' '*4,sep='')
