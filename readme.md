@@ -61,3 +61,9 @@ If the language does not have an extension, you can upload it as a txt file.
 If you need to include multiple files, create and add additional internal folders.  
 
 **Make sure to send screenshots of execution results when uploading PR!**
+
+<a href="https://github.com/Resten1497/christmas_tree/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Resten1497/christmas_tree" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
