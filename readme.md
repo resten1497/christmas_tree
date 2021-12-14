@@ -62,6 +62,9 @@ If you need to include multiple files, create and add additional internal folder
 
 **Make sure to send screenshots of execution results when uploading PR!**
 
+
+
+## Contributors 
 <a href="https://github.com/Resten1497/christmas_tree/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Resten1497/christmas_tree" />
 </a>
