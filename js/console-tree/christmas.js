@@ -2,7 +2,7 @@ let firstRow = "┌────────────────────�
 let blankRow = "│ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ│";
 let lastRow = "└────────────────────────┘";
 const bone = "│";
-const blank = "ㅤ";
+const blank = "˙";
 const leafs = ["%", "*", "&", "x", "♪"];
 
 const $startingpoint = document.querySelector("#startingpoint");
