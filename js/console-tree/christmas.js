@@ -3,9 +3,7 @@ let blankRow = "│ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ│";
 let lastRow = "└────────────────────────┘";
 const bone = "│";
 const blank = "ㅤ";
-const star = "x";
-const bell = "♪";
-const leafs = ["%", "*", "&"];
+const leafs = ["%", "*", "&", "x", "♪"];
 
 const $startingpoint = document.querySelector("#startingpoint");
 const $endingpoint = document.querySelector("#endingpoint");
